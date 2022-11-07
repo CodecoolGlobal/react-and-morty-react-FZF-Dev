@@ -9,13 +9,13 @@ function App() {
   const [display, setDisplay] = useState(<Description />);
 
   return (
-    <div className="App">
-      <div className="Valami">
+    <div id="app">
+      <div id="logoContainer">
         <img id="logo" src={image} alt="rick and morty logo" />
-        <div>
-          <button onClick={() => setDisplay(<Characters />)} className="header-buttons">Characters</button>
-          <button onClick={() => setDisplay(<Locations />)} className="header-buttons">Locations</button>
-        </div>
+      </div>
+      <div id="buttons">
+        <button onClick={() => setDisplay(<Characters />)} className="header-buttons">Characters</button>
+        <button onClick={() => setDisplay(<Locations />)} className="header-buttons">Locations</button>
       </div>
       {display}
     </div>

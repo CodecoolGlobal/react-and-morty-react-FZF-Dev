@@ -1,7 +1,7 @@
 function Characters() {
     return (
-        <div>
-            characters
+        <div id="charactersContainer">
+            <p style={{color: "white"}}>characters</p>
         </div>
     );
 }

@@ -1,7 +1,7 @@
 function Locations() {
     return (
-        <div>
-            locations
+        <div id="locationContainer">
+            <p style={{color: "white"}} >locations</p>
         </div>
     );
 }
