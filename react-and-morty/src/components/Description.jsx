@@ -1,7 +1,9 @@
+import './Description.css';
+
 function Description() {
     return (
         <div id='description'>
-            <p>Description</p>
+            <p id="descriptionText">This is a comprehensive guide to the Rick and Morty universe brought to you by Domestos Coding™</p>
         </div>
     )
 }
