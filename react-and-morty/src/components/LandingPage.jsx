@@ -9,7 +9,7 @@ function LandingPage() {
                 <button className='landing-buttons'>Characters</button>
                 <button className='landing-buttons'>Locations</button>
             </div>
-            <div>
+            <div id='description'>
                 <p>Description</p>
             </div>
         </div>
