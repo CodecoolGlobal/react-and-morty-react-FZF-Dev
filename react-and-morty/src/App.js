@@ -1,20 +1,20 @@
-import React from "react";
+import { useState } from "react";
 import "./App.css";
-import { useCharacters, useLocations } from "./api/useData";
-import LandingPage from "./components/LandingPage";
+import Header from "./components/Header";
+import Description from "./components/Description";
 
 function App() {
-  const characters = useCharacters(1);
-  const locations = useLocations(1);
+  const [display, setDisplay] = useState(<Description/>);
 
-  console.log("Characters data: ");
+  /*console.log("Characters data: ");
   console.log(characters);
   console.log("Locations data: ");
-  console.log(locations);
+  console.log(locations);*/
 
   return (
     <div className="App">
-      <LandingPage/>
+      <Header />
+      {display}
     </div>
   )
 }
