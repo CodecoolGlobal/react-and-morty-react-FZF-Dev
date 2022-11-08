@@ -14,7 +14,7 @@ function Characters(props) {
             .then(res => setCharactersDisplay(
                 res.results.map((character) => {
                     return (
-                        <CharacterCard/>
+                        <CharacterCard character={character}/>
                     )
                 })
             ))
@@ -24,7 +24,7 @@ function Characters(props) {
         <div id="Characters">
             <button onClick={() => {setCharactersPageNumber(charactersPageNumber - 1)}}>prev</button>
             <button onClick={() => {setCharactersPageNumber(charactersPageNumber + 1)}}>next</button>
-            <div id="">
+            <div id="characterCardContainer">
                 {charactersDisplay}
             </div>
         </div>
