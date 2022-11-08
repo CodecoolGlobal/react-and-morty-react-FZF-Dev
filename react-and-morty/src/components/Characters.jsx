@@ -1,4 +1,5 @@
 import './Characters.css';
+import CharacterCard from './CharacterCard';
 import { useEffect, useState } from 'react';
 import { characters } from '../api/dataRoutes';
 
@@ -11,9 +12,11 @@ function Characters(props) {
         fetch(`${characters}${charactersPageNumber}`)
             .then(res => res.json())
             .then(res => setCharactersDisplay(
-                res.results.map((character) => 
-                            <p key={character.id}> {character.name} <br /> {character.species} </p>
-                )
+                res.results.map((character) => {
+                    return (
+                        <CharacterCard/>
+                    )
+                })
             ))
     }, [charactersPageNumber]);
 
