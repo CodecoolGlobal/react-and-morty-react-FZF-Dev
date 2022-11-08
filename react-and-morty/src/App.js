@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 
 function App() {
   const [display, setDisplay] = useState("description");
-
+  
   return (
     <div id="App">
       <div id="Header">
