@@ -14,8 +14,9 @@
     color: rgb(78, 173, 197);
 }
 
-.avatar {
+.locAvatar {
     width: 25vh;
+    height: 25vh;
 }
 
 #locationCardContainer {
