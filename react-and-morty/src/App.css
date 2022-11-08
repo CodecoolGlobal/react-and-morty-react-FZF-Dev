@@ -13,7 +13,7 @@ html {
     max-height: 900px;
 }
 
-.header-buttons {
+.header-button {
     box-shadow: 0px 10px 14px -7px #276873;
     background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
     background-color: #599bb3;
@@ -30,12 +30,12 @@ html {
     margin: 15px;
 }
 
-.myButton:hover {
+.header-button:hover {
     background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
     background-color: #408c99;
 }
 
-.myButton:active {
+.header-button:active {
     position: relative;
     top: 1px;
 }

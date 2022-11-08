@@ -16,8 +16,8 @@ function App() {
           <img id="logo" src={image} alt="rick and morty logo" />
         </div>
         <div id="buttons">
-          <button onClick={() => setDisplay("characters")} className="header-buttons">Characters</button>
-          <button onClick={() => setDisplay("locations")} className="header-buttons">Locations</button>
+          <button onClick={() => setDisplay("characters")} className="header-button">Characters</button>
+          <button onClick={() => setDisplay("locations")} className="header-button">Locations</button>
         </div>
       </div>
       {display === "characters" ? <Characters/> : null}
