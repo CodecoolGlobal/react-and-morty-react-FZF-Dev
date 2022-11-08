@@ -1,9 +1,13 @@
+import './Footer.css';
+
 function Footer() {
     return (
-        <div id="footerContainer">
-            <div id="footer">
+        <div id="Footer">
+            <div id="trademark-container">
                 <p id="trademark">Domestos Coding™</p>
-            <button className="header-buttons">Back to homepage</button>
+            </div>
+            <div id="footer-button-container">
+                <button id="footer-button">Back to homepage</button>
             </div>
         </div>
     );
