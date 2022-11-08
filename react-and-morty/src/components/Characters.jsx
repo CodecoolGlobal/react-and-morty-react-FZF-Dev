@@ -1,3 +1,5 @@
+import './Characters.css'
+
 function Characters() {
     return (
         <div id="charactersContainer">

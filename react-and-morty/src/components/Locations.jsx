@@ -1,3 +1,5 @@
+import './Locations.css'
+
 function Locations() {
     return (
         <div id="locationContainer">
