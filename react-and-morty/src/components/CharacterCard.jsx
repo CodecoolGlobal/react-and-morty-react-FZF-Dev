@@ -1,5 +1,4 @@
 function CharacterCard(props) {
-    console.log(props);
     return (
         <div className="CharacterCard">
             <img className="avatar" src={props.character.image} alt="character avatar"></img>

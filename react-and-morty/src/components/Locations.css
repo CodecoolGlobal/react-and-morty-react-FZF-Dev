@@ -1,0 +1,26 @@
+.LocationCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: 3px solid black;
+    width: 100%;
+}
+
+#Locations {
+
+}
+
+.locationData {
+    color: rgb(78, 173, 197);
+}
+
+.avatar {
+    width: 25vh;
+}
+
+#locationCardContainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+
+}

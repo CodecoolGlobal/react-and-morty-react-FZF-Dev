@@ -14,7 +14,7 @@ function Characters(props) {
             .then(res => setCharactersDisplay(
                 res.results.map((character) => {
                     return (
-                        <CharacterCard character={character}/>
+                        <CharacterCard key={character.id} character={character}/>
                     )
                 })
             ))

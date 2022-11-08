@@ -15,12 +15,12 @@
 }
 
 .avatar {
-    width: 25vh;
+    max-width: 25vh;
 }
 
 #characterCardContainer {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
     padding: 10px;
 
 }
