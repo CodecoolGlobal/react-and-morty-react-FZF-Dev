@@ -7,7 +7,7 @@ function Popup(props) {
     
     useEffect(() => {
 
-    }, []);
+    }, [displayMode]);
 
     const display = text => text ?? "unknown";
     if(displayMode === "character") {

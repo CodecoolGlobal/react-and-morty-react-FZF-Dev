@@ -58,7 +58,7 @@ function Locations(props) {
         fetch(`${locations}${locationsPageNumber}`)
             .then(res => res.json())
             .then(function (res){
-                setLocationData([...locationData,...res.results])
+                if (res.results) setLocationData([...locationData,...res.results])
             })
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [locationsPageNumber]);
@@ -68,7 +68,13 @@ function Locations(props) {
             locationData.map((location) => {
                             return (
                                 <div key={location.id} ref={setLastElement}>
-                                <LocationCard  key={location.id} location={location} images={locationImages[location.type] } />  
+                                    <LocationCard
+                                        key={location.id} 
+                                        location={location} 
+                                        images={locationImages[location.type]} 
+                                        setPopupDisplay={props.setPopupDisplay}
+                                        setPopupDisplayData={props.setPopupDisplayData}
+                                    />
                                 </div> 
                             )
                         })
