@@ -45,6 +45,7 @@ function Popup(props) {
                         {displayMode === "character" ? <CharacterData data={data}/> : null}
                         {displayMode === "location" ? <LocationData data={data}/> : null}
                     </div>
+                    
                 </div>
             </div>
         )
