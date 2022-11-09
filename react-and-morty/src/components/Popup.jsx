@@ -4,39 +4,47 @@ import './Popup.css';
 function Popup(props) {
     const data = props.dataToDisplay;
     const displayMode = props.popupDisplay;
-    
-    useEffect(() => {
-
-    }, [displayMode]);
 
     const display = text => text ?? "unknown";
-    if(displayMode === "character") {
+
+    function CharacterData(props) {
+        const data = props.data
         return (
-            <div className='Popup'>
-                <div id="popup-content">
-                    <span id="popup-close-button">&times;</span>
-                    <div id="popup-name">Name: {data.name}</div>
-                    <p>
-                        Status: {display(data.status)}<br/>
-                        Species: {display(data.species)}<br/>
-                        Tpye: {display(data.type)}<br/>
-                        Gender: {display(data.gender)}<br/>
-                        Origin World: {display(data.origin.name)}<br/>
-                        Current Location: {display(data.location.name)}<br/>
-                    </p>
-                </div>
-            </div>
+            <p>
+                Status: {display(data.status)}<br />
+                Species: {display(data.species)}<br />
+                Tpye: {display(data.type)}<br />
+                Gender: {display(data.gender)}<br />
+                Origin World: {display(data.origin.name)}<br />
+                Current Location: {display(data.location.name)}<br />
+            </p>
         )
-    } else if (displayMode === "location") {
+    }
+
+    function LocationData(props) {
+        const data = props.data;
+        return (
+            <p>
+                Type: {display(data.type)}<br />
+                Dimension: {display(data.dimension)}<br />
+            </p>
+        )
+    }
+
+    useEffect(() => {
+        window.onclick = e => { if (e.target === document.querySelector(".Popup")) props.setPopupDisplay("none") }
+    }, [displayMode, props]);
+
+    if (displayMode !== "none") {
         return (
             <div className='Popup'>
                 <div id="popup-content">
-                    <span id="popup-close-button">&times;</span>
+                    <span id="popup-close-button" onClick={() => {props.setPopupDisplay("none")}}>&times;</span>
                     <div id="popup-name">Name: {data.name}</div>
-                    <p>
-                        Type: {display(data.type)}<br/>
-                        Dimension: {display(data.dimension)}<br/>
-                    </p>
+                    <div id="popup-details">
+                        {displayMode === "character" ? <CharacterData data={data}/> : null}
+                        {displayMode === "location" ? <LocationData data={data}/> : null}
+                    </div>
                 </div>
             </div>
         )

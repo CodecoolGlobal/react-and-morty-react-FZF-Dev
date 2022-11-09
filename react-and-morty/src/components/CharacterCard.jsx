@@ -6,7 +6,7 @@ function CharacterCard(props) {
             onClick={
                 () => {
                     props.setPopupDisplay("character");
-
+                    props.setPopupDisplayData(props.character);
                 }
             }></img>
             <div className="charInfoContainer">

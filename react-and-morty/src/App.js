@@ -24,7 +24,12 @@ function App() {
           <button onClick={() => setDisplay("locations")} className="header-button">Locations</button>
         </div>
       </div>
-      <Popup dataToDisplay={popupDisplayData} popupDisplay={popupDisplay}/>
+      <Popup 
+        dataToDisplay={popupDisplayData}
+        popupDisplay={popupDisplay} 
+        setPopupDisplayData={setPopupDisplayData}
+        setPopupDisplay={setPopupDisplay}
+      />
       {display === "characters" ? <Characters setPopupDisplay={setPopupDisplay} setPopupDisplayData={setPopupDisplayData}/> : null}
       {display === "locations" ? <Locations setPopupDisplay={setPopupDisplay} setPopupDisplayData={setPopupDisplayData}/> : null}
       {display === "description" ? <Description/> : null}
