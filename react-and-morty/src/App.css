@@ -8,9 +8,7 @@ html {
     background-color: black;
 }
 
-body {
-    width: 100 vw;
-} 
+body {}
 
 #logo {
     width: 70vw;
@@ -51,4 +49,9 @@ body {
 #logoContainer {
     display: flex;
     justify-content: center;
+}
+
+#logo,
+#buttons {
+    
 }
