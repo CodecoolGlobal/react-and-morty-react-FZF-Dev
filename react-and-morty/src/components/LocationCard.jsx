@@ -1,7 +1,9 @@
+import portalImg from "./images/portal.jpeg";
+
 function LocationCard(props) {
     return (
         <div className="LocationCard">
-            <img className="locAvatar" src={props.images} alt="location avatar" onClick={
+            <img className="locAvatar" src={portalImg} alt="location avatar" onClick={
                 () => {
                     props.setPopupDisplay("location");
                     props.setPopupDisplayData(props.location);
