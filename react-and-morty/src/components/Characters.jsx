@@ -49,7 +49,12 @@ function Characters(props) {
             characterData.map((character) => {
                             return (
                                 <div key={character.id} ref={setLastElement}>
-                                <CharacterCard key={character.id} character={character}/> 
+                                    <CharacterCard
+                                        key={character.id} 
+                                        character={character} 
+                                        setPopupDisplay={props.setPopupDisplay}
+                                        setPopupDisplayData={props.setPopupDisplayData}
+                                    /> 
                                 </div> 
                             )
                         })

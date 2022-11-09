@@ -25,8 +25,8 @@ function App() {
         </div>
       </div>
       <Popup dataToDisplay={popupDisplayData} popupDisplay={popupDisplay}/>
-      {display === "characters" ? <Characters/> : null}
-      {display === "locations" ? <Locations/> : null}
+      {display === "characters" ? <Characters setPopupDisplay={setPopupDisplay} setPopupDisplayData={setPopupDisplayData}/> : null}
+      {display === "locations" ? <Locations setPopupDisplay={setPopupDisplay} setPopupDisplayData={setPopupDisplayData}/> : null}
       {display === "description" ? <Description/> : null}
       <Footer setDisplay={setDisplay}/>
     </div>
