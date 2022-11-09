@@ -1,24 +1,62 @@
 import './Characters.css';
 import CharacterCard from './CharacterCard';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { characters } from '../api/dataRoutes';
 
 function Characters(props) {
     const [charactersPageNumber, setCharactersPageNumber] = useState(1);
     const [charactersDisplay, setCharactersDisplay] = useState("Loading...");
+    const [characterData, setCharacterData] = useState([]);
+    const [lastElement, setLastElement] = useState(null);
+
+    const observer = useRef(
+        new IntersectionObserver(
+            (entries) => {
+                const first = entries[0];
+                if (first.isIntersecting) {
+                    setCharactersPageNumber((no) => no + 1);
+                }
+            })
+    );
 
     useEffect(() => {
-        setCharactersDisplay("Loading...");
+        const currentElement = lastElement;
+        const currentObserver = observer.current;
+
+        if (currentElement) {
+            currentObserver.observe(currentElement);
+        }
+
+        return () => {
+            if (currentElement) {
+                currentObserver.unobserve(currentElement);
+            }
+        };
+    }, [lastElement]);
+
+
+    useEffect(() => {
         fetch(`${characters}${charactersPageNumber}`)
             .then(res => res.json())
-            .then(res => setCharactersDisplay(
-                res.results.map((character) => {
-                    return (
-                        <CharacterCard key={character.id} character={character}/>
-                    )
-                })
-            ))
+            .then(function (res){
+                setCharacterData([...characterData,...res.results])
+            })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [charactersPageNumber]);
+
+    useEffect(()=>{
+        setCharactersDisplay(
+            characterData.map((character) => {
+                            return (
+                                <div key={character.id} ref={setLastElement}>
+                                <CharacterCard key={character.id} character={character}/> 
+                                </div> 
+                            )
+                        })
+                    )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [characterData])
+
 
     return (
         <div id="Characters">

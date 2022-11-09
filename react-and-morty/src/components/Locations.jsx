@@ -1,6 +1,6 @@
 import './Locations.css';
 import LocationCard from './LocationCard';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { locations } from '../api/dataRoutes';
 import cluster from "./images/cluster.jpg";
 import dream from "./images/dream.jpeg";
@@ -25,22 +25,56 @@ function Locations(props) {
 
     const [locationsPageNumber, setLocationsPageNumber] = useState(1);
     const [locationsDisplay, setLocationsDisplay] = useState("Loading...");
+    const [locationData, setLocationData] = useState([])
+    const [lastElement, setLastElement] = useState(null);
+
+    const observer = useRef(
+        new IntersectionObserver(
+            (entries) => {
+                const first = entries[0];
+                if (first.isIntersecting) {
+                    setLocationsPageNumber((no) => no + 1);
+                }
+            })
+    );
 
     useEffect(() => {
-        setLocationsDisplay("Loading...");
+        const currentElement = lastElement;
+        const currentObserver = observer.current;
+
+        if (currentElement) {
+            currentObserver.observe(currentElement);
+        }
+
+        return () => {
+            if (currentElement) {
+                currentObserver.unobserve(currentElement);
+            }
+        };
+    }, [lastElement]);
+
+
+    useEffect(() => {
         fetch(`${locations}${locationsPageNumber}`)
             .then(res => res.json())
-            .then(res => setLocationsDisplay(
-                res.results.map((location) => {
-                    //if(!Object.keys(locationImages).includes(location.type)){
-                    //    console.log(location.type)
-                    //}
-                    return (
-                        <LocationCard key={location.id} location={location} images={locationImages[location.type]} />
-                    )
-                })
-            ))
+            .then(function (res){
+                setLocationData([...locationData,...res.results])
+            })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [locationsPageNumber]);
+
+    useEffect(()=>{
+        setLocationsDisplay(
+            locationData.map((location) => {
+                            return (
+                                <div key={location.id} ref={setLastElement}>
+                                <LocationCard  key={location.id} location={location} images={locationImages[location.type] } />  
+                                </div> 
+                            )
+                        })
+                    )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [locationData])
 
     return (
         <div id="Characters">
