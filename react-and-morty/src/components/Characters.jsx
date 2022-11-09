@@ -60,8 +60,6 @@ function Characters(props) {
 
     return (
         <div id="Characters">
-            <button onClick={() => {setCharactersPageNumber(charactersPageNumber - 1)}}>prev</button>
-            <button onClick={() => {setCharactersPageNumber(charactersPageNumber + 1)}}>next</button>
             <div id="characterCardContainer">
                 {charactersDisplay}
             </div>

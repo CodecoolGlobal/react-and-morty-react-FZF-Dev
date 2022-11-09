@@ -1,5 +1,3 @@
-#trademark-container {}
-
 #trademark {
     position: absolute;
     bottom: 0;
@@ -53,8 +51,4 @@
 #footer-button:active {
     
     top: 1px;
-}
-
-#footer-button {
-    
 }

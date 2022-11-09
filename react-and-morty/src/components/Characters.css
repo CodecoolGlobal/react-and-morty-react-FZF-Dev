@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 3px solid black;
     width: 100%;
+    margin: 30px;
 }
 
 #characterCardContainer {
@@ -35,4 +35,16 @@
 .charAvatar {
     max-width: 25vh;
     height: auto;
+    margin: 10px;
+    border: 6px solid rgb(78, 173, 197);
+    border-radius: 10px;
+    transition: transform .2s;
+}
+
+.charAvatar:hover {
+    transform: scale(1.65);
+}
+
+#buttons {
+    margin-bottom: 20px;
 }

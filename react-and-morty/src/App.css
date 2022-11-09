@@ -8,8 +8,6 @@ html {
     background-color: black;
 }
 
-body {}
-
 #logo {
     width: 70vw;
 }
@@ -49,9 +47,4 @@ body {}
 #logoContainer {
     display: flex;
     justify-content: center;
-}
-
-#logo,
-#buttons {
-    
 }

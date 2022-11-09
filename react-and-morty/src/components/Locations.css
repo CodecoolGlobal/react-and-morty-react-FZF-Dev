@@ -11,13 +11,32 @@
 }
 
 .locAvatar {
-    width: 25vh;
-    height: 25vh;
+    max-width: 25vh;
+    height: auto;
+    margin: 10px;
+    border: 6px solid rgb(78, 173, 197);
+    border-radius: 10px;
+    transition: transform .2s;
+}
+
+.locAvatar:hover {
+    transform: scale(1.65);
 }
 
 #locationCardContainer {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
     padding: 10px;
+}
 
+@media (max-width: 500px) {
+    #locationCardContainer {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media (max-width: 400px) {
+    #locationCardContainer {
+        grid-template-columns: auto auto;
+    }
 }
