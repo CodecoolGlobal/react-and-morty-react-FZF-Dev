@@ -4,14 +4,24 @@
     align-items: center;
     border-style: 3px solid black;
     width: 100%;
+    margin-top: 45px;
+    margin-bottom: 45px;
 }
 
 .locationData {
     color: rgb(78, 173, 197);
+    max-width: 200px;
+    font-size: small;
+}
+
+@media (max-width: 500px) {
+    .characterData {
+        font-size: xx-small;
+    }
 }
 
 .locAvatar {
-    max-width: 25vh;
+    max-width: min(max(10px, 30vw), 150px);
     height: auto;
     margin: 10px;
     border: 6px solid rgb(78, 173, 197);
@@ -20,23 +30,37 @@
 }
 
 .locAvatar:hover {
-    transform: scale(1.62);
+    transform: scale(1.85);
+}
+
+@media (max-width: 500px) {
+    .charAvatar:hover {
+        transform: scale(1.6);
+    }
+}
+
+@media (max-width: 400px) {
+    .charAvatar:hover {
+        transform: scale(1.85);
+    }
 }
 
 #locationCardContainer {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     padding: 10px;
+    justify-content: space-around;
+    margin-bottom: 50px;
 }
 
 @media (max-width: 500px) {
     #locationCardContainer {
-        grid-template-columns: auto auto auto;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 @media (max-width: 400px) {
     #locationCardContainer {
-        grid-template-columns: auto auto;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 }
