@@ -34,7 +34,8 @@ html {
     background-color: #408c99;
 }
 
-.header-button:active {
+.header-button:focus {
+    color: rgb(148, 233, 112);
     position: relative;
     top: 1px;
 }
