@@ -53,7 +53,6 @@ function Locations(props) {
         };
     }, [lastElement]);
 
-
     useEffect(() => {
         fetch(`${locations}${locationsPageNumber}`)
             .then(res => res.json())
@@ -84,8 +83,6 @@ function Locations(props) {
 
     return (
         <div id="Characters">
-            <button onClick={() => { if(locationsPageNumber !== 1) setLocationsPageNumber(locationsPageNumber - 1) }}>prev</button>
-            <button onClick={() => { setLocationsPageNumber(locationsPageNumber + 1) }}>next</button>
             <div id="locationCardContainer">
                 {locationsDisplay}
             </div>
@@ -94,7 +91,3 @@ function Locations(props) {
 }
 
 export default Locations;
-
-/*
-{id: 1, name: 'Rick Sanchez', status: 'Alive', species: 'Human', type: '', …}
-*/
