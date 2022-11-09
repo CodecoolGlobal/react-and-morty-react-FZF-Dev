@@ -3,7 +3,8 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin: 30px;
+    margin-top: 45px;
+    margin-bottom: 45px;
 }
 
 #characterCardContainer {
@@ -42,7 +43,7 @@
 }
 
 .charAvatar:hover {
-    transform: scale(1.62);
+    transform: scale(1.7);
 }
 
 #buttons {
