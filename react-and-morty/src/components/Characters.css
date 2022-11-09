@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-style: 3px solid black;
+    border: 3px solid black;
     width: 100%;
 }
 
@@ -10,7 +10,8 @@
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     padding: 10px;
-
+    justify-content: space-between;
+    margin-bottom: 50px;
 }
 
 @media (max-width: 500px) {
@@ -27,8 +28,11 @@
 
 .characterData {
     color: rgb(78, 173, 197);
+    max-width: 200px;
+    font-size: small;
 }
 
 .charAvatar {
     max-width: 25vh;
+    height: auto;
 }
