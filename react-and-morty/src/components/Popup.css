@@ -33,3 +33,9 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+#popup-text-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

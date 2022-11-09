@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import './Popup.css';
+import portalImg from "./images/portal.jpeg";
 
 function Popup(props) {
     const data = props.dataToDisplay;
@@ -32,20 +33,26 @@ function Popup(props) {
     }
 
     useEffect(() => {
-        window.onclick = e => { if (e.target === document.querySelector(".Popup")) props.setPopupDisplay("none") }
+        window.onclick = e => { if (e.target === document.querySelector(".Popup")) props.setPopupDisplay("none") };
     }, [displayMode, props]);
 
     if (displayMode !== "none") {
         return (
             <div className='Popup'>
                 <div id="popup-content">
-                    <span id="popup-close-button" onClick={() => {props.setPopupDisplay("none")}}>&times;</span>
-                    <div id="popup-name">Name: {data.name}</div>
-                    <div id="popup-details">
-                        {displayMode === "character" ? <CharacterData data={data}/> : null}
-                        {displayMode === "location" ? <LocationData data={data}/> : null}
+                    <span id="popup-close-button" onClick={() => { props.setPopupDisplay("none"); console.log(data) }}>&times;</span>
+                    <div id="popup-text-container">
+                        <div>
+                            <img src={data.image ? `${data.image}` : portalImg} alt="popup"></img>
+                        </div>
+                        <div>
+                            <div id="popup-name">Name: {data.name}</div>
+                            <div id="popup-details">
+                                {displayMode === "character" ? <CharacterData data={data} /> : null}
+                                {displayMode === "location" ? <LocationData data={data} /> : null}
+                            </div>
+                        </div>
                     </div>
-                    
                 </div>
             </div>
         )
