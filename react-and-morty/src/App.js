@@ -5,9 +5,13 @@ import Description from "./components/Description";
 import Characters from "./components/Characters";
 import Locations from "./components/Locations";
 import Footer from "./components/Footer";
+import Popup from "./components/Popup";
 
 function App() {
   const [display, setDisplay] = useState("description");
+  const [popupDisplayData, setPopupDisplayData] = useState();
+  const [popupDisplay, setPopupDisplay] = useState("none");
+
   
   return (
     <div id="App">
@@ -20,6 +24,7 @@ function App() {
           <button onClick={() => setDisplay("locations")} className="header-button">Locations</button>
         </div>
       </div>
+      <Popup dataToDisplay={popupDisplayData} popupDisplay={popupDisplay}/>
       {display === "characters" ? <Characters/> : null}
       {display === "locations" ? <Locations/> : null}
       {display === "description" ? <Description/> : null}

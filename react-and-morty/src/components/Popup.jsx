@@ -1,12 +1,16 @@
+import { useEffect } from "react";
 import './Popup.css';
 
 function Popup(props) {
-    
-
     const data = props.dataToDisplay;
-    const display = text => text ?? "unknown";
+    const displayMode = props.popupDisplay;
+    
+    useEffect(() => {
 
-    if(props.data.typeOfDataToDisplay === "character") {
+    }, []);
+
+    const display = text => text ?? "unknown";
+    if(displayMode === "character") {
         return (
             <div className='Popup'>
                 <div id="popup-content">
@@ -23,7 +27,7 @@ function Popup(props) {
                 </div>
             </div>
         )
-    } else if (props.data.typeOfDataToDisplay === "location") {
+    } else if (displayMode === "location") {
         return (
             <div className='Popup'>
                 <div id="popup-content">
@@ -36,6 +40,8 @@ function Popup(props) {
                 </div>
             </div>
         )
+    } else if (displayMode === "none") {
+        return;
     }
 }
 
