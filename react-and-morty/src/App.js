@@ -36,7 +36,7 @@ function App() {
       {display === "characters" ? <Characters setPopupDisplay={setPopupDisplay} setPopupDisplayData={setPopupDisplayData} /> : null}
       {display === "locations" ? <Locations setPopupDisplay={setPopupDisplay} setPopupDisplayData={setPopupDisplayData} /> : null}
       {display === "description" ? <Description /> : null}
-      <Footer setDisplay={setDisplay} />
+      <Footer setDisplay={setDisplay} setCharBtnColor={setCharBtnColor} setLocBtnColor={setLocBtnColor}/>
     </div>
   );
 }

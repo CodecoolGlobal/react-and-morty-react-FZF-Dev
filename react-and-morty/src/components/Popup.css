@@ -13,7 +13,7 @@
 }
 
 #popup-content {
-    background-color: #fefefe;
+    background-color: rgb(78, 173, 197);
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
@@ -21,15 +21,16 @@
 }
 
 #popup-close-button {
-    color: #aaaaaa;
+    color: white;
     float: right;
-    font-size: 28px;
+    font-size: 50px;
     font-weight: bold;
+    padding-right: 2%;
 }
 
 #popup-close-button:hover,
 #popup-close-button:focus {
-    color: #000;
+    color: rgb(68, 227, 0);
     text-decoration: none;
     cursor: pointer;
 }
