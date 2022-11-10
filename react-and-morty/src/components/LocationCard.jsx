@@ -5,8 +5,8 @@ function LocationCard(props) {
         <div className="LocationCard">
             <img className="locAvatar" src={portalImg} alt="location avatar" onClick={
                 () => {
-                    props.setPopupDisplay("location");
                     props.setPopupDisplayData(props.location);
+                    props.setPopupDisplay("location");
                 }
             }></img>
             <div className="locationData">{`Name: ${props.location.name}`}</div>

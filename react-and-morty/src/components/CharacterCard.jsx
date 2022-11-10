@@ -5,8 +5,8 @@ function CharacterCard(props) {
             <img className="charAvatar" src={props.character.image} alt="character avatar"
             onClick={
                 () => {
-                    props.setPopupDisplay("character");
                     props.setPopupDisplayData(props.character);
+                    props.setPopupDisplay("character");
                 }
             }></img>
             <div className="charInfoContainer">

@@ -9,12 +9,12 @@ function Popup(props) {
     const display = text => text ?? "unknown";
 
     function CharacterData(props) {
-        const data = props.data
+        const data = props.data;
         return (
             <p>
                 Status: {display(data.status)}<br />
                 Species: {display(data.species)}<br />
-                Tpye: {display(data.type)}<br />
+                Type: {display(data.type)}<br />
                 Gender: {display(data.gender)}<br />
                 Origin World: {display(data.origin.name)}<br />
                 Current Location: {display(data.location.name)}<br />
@@ -24,13 +24,21 @@ function Popup(props) {
 
     function LocationData(props) {
         const data = props.data;
+
+
         return (
-            <p>
-                Type: {display(data.type)}<br />
-                Dimension: {display(data.dimension)}<br />
-            </p>
+            <div id="LocationData">
+                <div>
+                    <p>
+                        Type: {display(data.type)}<br />
+                        Dimension: {display(data.dimension)}<br />
+                    </p>
+                </div>
+            </div>
         )
     }
+
+    
 
     useEffect(() => {
         window.onclick = e => { if (e.target === document.querySelector(".Popup")) props.setPopupDisplay("none") };
@@ -41,7 +49,7 @@ function Popup(props) {
             <div className='Popup'>
                 <div id="popup-content">
                     <span id="popup-close-button" onClick={() => { props.setPopupDisplay("none"); console.log(data) }}>&times;</span>
-                    <div id="popup-text-container">
+                    <div id="popup-content-container">
                         <div>
                             <img src={data.image ? `${data.image}` : portalImg} alt="popup"></img>
                         </div>

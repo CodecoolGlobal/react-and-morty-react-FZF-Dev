@@ -34,8 +34,9 @@
     cursor: pointer;
 }
 
-#popup-text-container {
+#popup-content-container {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content:space-evenly;
 }
