@@ -5,7 +5,6 @@ import { characters } from '../api/dataRoutes';
 
 function Characters(props) {
     const [charactersPageNumber, setCharactersPageNumber] = useState(1);
-    const [charactersDisplay, setCharactersDisplay] = useState("Loading...");
     const [characterData, setCharacterData] = useState([]);
     const [lastElement, setLastElement] = useState(null);
 
@@ -34,46 +33,34 @@ function Characters(props) {
         };
     }, [lastElement]);
 
-
     useEffect(() => {
-        fetch(`${characters}${charactersPageNumber}`)
+        const controller = new AbortController();
+        fetch(`${characters}${charactersPageNumber}`, {signal: controller.signal})
             .then(res => res.json())
-            .then(function (res){
-                setCharacterData([...characterData,...res.results])
+            .then(function (res) {
+                setCharacterData((current) => [...current, ...res.results]);
             })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        return () => {controller.abort()};
     }, [charactersPageNumber]);
-
-    useEffect(()=>{
-        setCharactersDisplay(
-            characterData.map((character) => {
-                            return (
-                                <div key={character.id} ref={setLastElement}>
-                                    <CharacterCard
-                                        key={character.id} 
-                                        character={character} 
-                                        setPopupDisplay={props.setPopupDisplay}
-                                        setPopupDisplayData={props.setPopupDisplayData}
-                                    /> 
-                                </div> 
-                            )
-                        })
-                    )
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [characterData])
-
 
     return (
         <div id="Characters">
             <div id="characterCardContainer">
-                {charactersDisplay}
+                {characterData.map((character) => {
+                    return (
+                        <div key={character.id} ref={setLastElement}>
+                            <CharacterCard
+                                character={character}
+                                setPopupDisplay={props.setPopupDisplay}
+                                setPopupDisplayData={props.setPopupDisplayData}
+                            />
+                        </div>
+                    )
+                })
+                }
             </div>
         </div>
     );
 }
 
 export default Characters;
-
-/*
-{id: 1, name: 'Rick Sanchez', status: 'Alive', species: 'Human', type: '', …}
-*/

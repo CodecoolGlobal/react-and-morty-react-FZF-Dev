@@ -6,8 +6,7 @@ import { locations } from '../api/dataRoutes';
 function Locations(props) {
 
     const [locationsPageNumber, setLocationsPageNumber] = useState(1);
-    const [locationsDisplay, setLocationsDisplay] = useState("Loading...");
-    const [locationData, setLocationData] = useState([])
+    const [locationData, setLocationData] = useState([]);
     const [lastElement, setLastElement] = useState(null);
 
     const observer = useRef(
@@ -36,36 +35,29 @@ function Locations(props) {
     }, [lastElement]);
 
     useEffect(() => {
-        fetch(`${locations}${locationsPageNumber}`)
+        const controller = new AbortController();
+        fetch(`${locations}${locationsPageNumber}`, { signal: controller.signal })
             .then(res => res.json())
             .then(function (res) {
-                if (res.results) setLocationData([...locationData, ...res.results])
+                if (res.results) setLocationData((current) => [...current, ...res.results])
             })
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        return () => { controller.abort() };
     }, [locationsPageNumber]);
-
-    useEffect(() => {
-        setLocationsDisplay(
-            locationData.map((location) => {
-                return (
-                    <div key={location.id} ref={setLastElement}>
-                        <LocationCard
-                            key={location.id}
-                            location={location}
-                            setPopupDisplay={props.setPopupDisplay}
-                            setPopupDisplayData={props.setPopupDisplayData}
-                        />
-                    </div>
-                )
-            })
-        )
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [locationData])
 
     return (
         <div id="Characters">
             <div id="locationCardContainer">
-                {locationsDisplay}
+                {locationData.map((location) => {
+                    return (
+                        <div key={location.id} ref={setLastElement}>
+                            <LocationCard
+                                location={location}
+                                setPopupDisplay={props.setPopupDisplay}
+                                setPopupDisplayData={props.setPopupDisplayData}
+                            />
+                        </div>
+                    )
+                })}
             </div>
         </div>
     );
