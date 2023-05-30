@@ -39,3 +39,13 @@ This will install all the dependencies which our app needs to run. When npm has 
 
 This is basically the switch which will run our app, open a browser, or a new tab in an already open browser on your machine and if everything went according to plan, you should see the landing page of said web app:
 
+![Screenshot 2023-05-30 at 21 45 05](https://github.com/CodecoolGlobal/react-and-morty-react-FZF-Dev/assets/109275872/af9bd9f7-3149-4ed9-9ccc-bdc4f8016bde)
+
+At this point, you are free to navigate. The app has two categories:
+
+1. Locations 📍
+2. Characters 🙎
+
+Under each category, you can find detailed information of each object in the given category. For example the name and species of characters as well as type and dimension of all locations. Pop up windows on click and infinite scroll will aid navigation throughout the app.
+
+Quick question: Are you using internet explorer? There is an easter egg on the landing page. Can you find it? 💬 
