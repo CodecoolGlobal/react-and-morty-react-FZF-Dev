@@ -46,6 +46,6 @@ At this point, you are free to navigate. The app has two categories:
 1. Locations 📍
 2. Characters 🙎
 
-Under each category, you can find detailed information of each object in the given category. For example the name and species of characters as well as type and dimension of all locations. Pop up windows on click and infinite scroll will aid navigation throughout the app.
+Under each category, you can find detailed information of each object in the given category. For example the name and species of characters as well as type and dimension of all locations. Pop up windows on click and infinite scroll will aid navigation throughout the app. The app is still under development.
 
 Quick question: Are you using internet explorer? There is an easter egg on the landing page. Can you find it? 💬 
