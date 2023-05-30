@@ -24,8 +24,6 @@ function Popup(props) {
 
     function LocationData(props) {
         const data = props.data;
-
-
         return (
             <div id="LocationData">
                 <div>

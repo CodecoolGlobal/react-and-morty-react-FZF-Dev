@@ -13,9 +13,7 @@ function App() {
   const [popupDisplay, setPopupDisplay] = useState("none");
   const [chrBtnClr, setCharBtnColor] = useState("white");
   const [locBtnColor, setLocBtnColor] = useState("white");
-
-
-
+  
   return (
     <div id="App">
       <div id="Header">
