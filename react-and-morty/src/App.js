@@ -7,12 +7,17 @@ import Locations from "./components/Locations";
 import Footer from "./components/Footer";
 import Popup from "./components/Popup";
 
+const SELECTED_BUTTON_COLOR = "rgb(148, 233, 112)";
+
 function App() {
   const [display, setDisplay] = useState("description");
   const [popupDisplayData, setPopupDisplayData] = useState();
   const [popupDisplay, setPopupDisplay] = useState("none");
-  const [chrBtnClr, setCharBtnColor] = useState("white");
-  const [locBtnColor, setLocBtnColor] = useState("white");
+  // const [chrBtnClr, setCharBtnColor] = useState("white");
+  // const [locBtnColor, setLocBtnColor] = useState("white");
+
+  const charBtnColor = display === "characters" ? SELECTED_BUTTON_COLOR : "white";
+  const locBtnColor = display === "locations" ? SELECTED_BUTTON_COLOR : "white";
   
   return (
     <div id="App">
@@ -21,8 +26,8 @@ function App() {
           <img id="logo" src={image} alt="rick and morty logo" />
         </div>
         <div id="buttons">
-          <button onClick={() => { setDisplay("characters"); setCharBtnColor("rgb(148, 233, 112)"); setLocBtnColor("white") }} style={{ color: chrBtnClr }} className="header-button">Characters</button>
-          <button onClick={() => { setDisplay("locations"); setCharBtnColor("white"); setLocBtnColor("rgb(148, 233, 112)") }} style={{ color: locBtnColor }} className="header-button">Locations</button>
+          <button onClick={() => { setDisplay("characters"); }} style={{ color: charBtnColor }} className="header-button">Characters</button>
+          <button onClick={() => { setDisplay("locations"); }} style={{ color: locBtnColor }} className="header-button">Locations</button>
         </div>
       </div>
       <Popup
@@ -34,7 +39,7 @@ function App() {
       {display === "characters" ? <Characters setPopupDisplay={setPopupDisplay} setPopupDisplayData={setPopupDisplayData} /> : null}
       {display === "locations" ? <Locations setPopupDisplay={setPopupDisplay} setPopupDisplayData={setPopupDisplayData} /> : null}
       {display === "description" ? <Description /> : null}
-      <Footer setDisplay={setDisplay} setCharBtnColor={setCharBtnColor} setLocBtnColor={setLocBtnColor}/>
+      <Footer setDisplay={setDisplay}/>
     </div>
   );
 }
