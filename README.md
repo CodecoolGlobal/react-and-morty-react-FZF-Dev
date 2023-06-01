@@ -35,9 +35,11 @@ First of all you need to clone the repository onto your computer. After that is 
 npm i
 ```
 
-This will install all the dependencies which our app needs to run. When npm has done its thiing, issue the next command:
+This will install all the dependencies which our app needs to run. When npm has done its thing, issue the next command:
 
-### npm start
+```
+npm i
+```
 
 This is basically the switch which will run our app, open a browser, or a new tab in an already open browser on your machine and if everything went according to plan, you should see the landing page of said web app:
 
