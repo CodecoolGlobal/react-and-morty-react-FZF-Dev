@@ -40,6 +40,13 @@ function Characters(props) {
             .then(function (res) {
                 setCharacterData((current) => [...current, ...res.results]);
             })
+            .catch(err => {
+                if (err.name == "AbortError") {
+                    // Nothing to do, abort was intentional
+                } else {
+                    console.error(err);
+                }
+            })
         return () => {controller.abort()};
     }, [charactersPageNumber]);
 
