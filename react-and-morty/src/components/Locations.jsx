@@ -41,6 +41,13 @@ function Locations(props) {
             .then(function (res) {
                 if (res.results) setLocationData((current) => [...current, ...res.results])
             })
+            .catch(err => {
+                if (err.name === "AbortError") {
+                    // Nothing to do, abort was intentional
+                } else {
+                    console.error(err);
+                }
+            })
         return () => { controller.abort() };
     }, [locationsPageNumber]);
 
