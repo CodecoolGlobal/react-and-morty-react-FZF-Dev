@@ -38,7 +38,7 @@ npm i
 This will install all the dependencies which our app needs to run. When npm has done its thing, issue the next command:
 
 ```
-npm i
+npm start
 ```
 
 This is basically the switch which will run our app, open a browser, or a new tab in an already open browser on your machine and if everything went according to plan, you should see the landing page of said web app:
