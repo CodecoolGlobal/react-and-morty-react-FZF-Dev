@@ -41,7 +41,7 @@ function Characters(props) {
                 setCharacterData((current) => [...current, ...res.results]);
             })
             .catch(err => {
-                if (err.name == "AbortError") {
+                if (err.name === "AbortError") {
                     // Nothing to do, abort was intentional
                 } else {
                     console.error(err);
