@@ -8,7 +8,7 @@ Do you know Rick and Morty? If not, start watching, it's a hilarious show!
 
 Anyways, the Rick and Morty universe is kind of big with lot of characters and locations. As fans, we decided that it is our duty to make an encyclopedia about characters and locations in the Rick and Morty universe.
 
-The 💡 **tech** 🛠️ we have used in the project:
+🛠️ The **tech** we have used in the project:
 
 * React (JSX)
 * Javascript
